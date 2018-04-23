@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
+using System.IO;
+using System.Reflection;
 
 namespace ProcessWrapper
 {
@@ -7,11 +9,8 @@ namespace ProcessWrapper
     {
         static void Main(string[] args)
         {
-            var process = new ProcessStartInfo("test.bat")
-            {
-                WorkingDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop)
-            };
-
+            var path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile),"Build_Scripts", "test.bat");
+            var process = new ProcessStartInfo(path);
             Process.Start(process);
         }
     }

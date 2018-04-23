@@ -18,6 +18,7 @@ EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		DemoApp\DemoApp\DemoApp.projitems*{1c917dee-8f4b-4a3a-9113-d709c7d3d28d}*SharedItemsImports = 4
+		DemoApp\DemoApp\DemoApp.projitems*{20e1a6de-1b87-418b-8416-d9b4cd74c346}*SharedItemsImports = 4
 		DemoApp\DemoApp\DemoApp.projitems*{85aefed7-7c0d-4602-9e96-a214e9a1a239}*SharedItemsImports = 4
 		DemoApp\DemoApp\DemoApp.projitems*{a4ddae2b-e356-4c23-88c5-6ac36045098e}*SharedItemsImports = 13
 		DemoApp\DemoApp\DemoApp.projitems*{ccb075fa-50b2-4572-9897-0964a14925e0}*SharedItemsImports = 4
