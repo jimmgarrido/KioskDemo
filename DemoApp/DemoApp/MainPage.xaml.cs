@@ -31,10 +31,7 @@ namespace DemoApp
 			NSApplication.SharedApplication.MainWindow.ToggleFullScreen(NSApplication.SharedApplication.MainWindow);
 			NSApplication.SharedApplication.MainWindow.Level = NSWindowLevel.Floating;
 
-			var process = new ProcessStartInfo("test.sh")
-			{
-				WorkingDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop)
-			};
+			var process = new ProcessStartInfo("scripts/setup.sh");
 
 			//var proc = new ProcessStartInfo("/Users/jimmygarrido/Desktop/test.sh");
 			//proc.WorkingDirectory = "/Users/jimmygarrido/Desktop";

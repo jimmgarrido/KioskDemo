@@ -1,20 +1,43 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+using System.Diagnostics;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+#if WINDOWS_UWP
+using Windows.UI.ViewManagement;
+using Windows.UI.Xaml;
+using Windows.ApplicationModel;
+#elif __MACOS__
+using AppKit;
+#endif
 
 namespace DemoApp
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class FinalPage : ContentPage
 	{
 		public FinalPage ()
 		{
 			InitializeComponent ();
+		}
+
+		private async void Button_Clicked(object sender, EventArgs e)
+		{
+#if WINDOWS_UWP
+            var pref = ViewModePreferences.CreateDefault(ApplicationViewMode.CompactOverlay);
+            pref.CustomSize = new Windows.Foundation.Size(500, 500);
+
+            await ApplicationView.GetForCurrentView().TryEnterViewModeAsync(ApplicationViewMode.CompactOverlay, pref);
+            await FullTrustProcessLauncher.LaunchFullTrustProcessForCurrentAppAsync();
+
+#elif __MACOS__
+			NSApplication.SharedApplication.MainWindow.ToggleFullScreen(NSApplication.SharedApplication.MainWindow);
+			NSApplication.SharedApplication.MainWindow.Level = NSWindowLevel.Floating;
+
+			var process = new ProcessStartInfo("cleanup.sh")
+			{
+				WorkingDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop)
+			};
+
+			Process.Start(process);
+#endif
 		}
 	}
 }

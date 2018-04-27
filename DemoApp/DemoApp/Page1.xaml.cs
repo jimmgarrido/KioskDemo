@@ -9,7 +9,6 @@ using Xamarin.Forms.Xaml;
 
 namespace DemoApp
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class Page1 : ContentPage
 	{
 		public Page1 ()
