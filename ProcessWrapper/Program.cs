@@ -9,7 +9,7 @@ namespace ProcessWrapper
     {
         static void Main(string[] args)
         {
-            var path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile),"Build_Scripts", "test.bat");
+            var path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile),"Build_Scripts", "setup.bat");
             var process = new ProcessStartInfo(path);
             Process.Start(process);
         }
