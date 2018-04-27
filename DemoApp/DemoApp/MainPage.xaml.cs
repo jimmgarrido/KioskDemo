@@ -32,10 +32,6 @@ namespace DemoApp
 			NSApplication.SharedApplication.MainWindow.Level = NSWindowLevel.Floating;
 
 			var process = new ProcessStartInfo("scripts/setup.sh");
-
-			//var proc = new ProcessStartInfo("/Users/jimmygarrido/Desktop/test.sh");
-			//proc.WorkingDirectory = "/Users/jimmygarrido/Desktop";
-
 			Process.Start(process);
 #endif
 			await Navigation.PushAsync(new Page1());

@@ -20,6 +20,8 @@ namespace DemoApp
 
 		private async void Button_Clicked(object sender, EventArgs e)
 		{
+			var arg = archiveSwitch.IsToggled ? "archive" : String.Empty;
+
 #if WINDOWS_UWP
             var pref = ViewModePreferences.CreateDefault(ApplicationViewMode.CompactOverlay);
             pref.CustomSize = new Windows.Foundation.Size(500, 500);
@@ -31,10 +33,7 @@ namespace DemoApp
 			NSApplication.SharedApplication.MainWindow.ToggleFullScreen(NSApplication.SharedApplication.MainWindow);
 			NSApplication.SharedApplication.MainWindow.Level = NSWindowLevel.Floating;
 
-			var process = new ProcessStartInfo("cleanup.sh")
-			{
-				WorkingDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop)
-			};
+			var process = new ProcessStartInfo("scripts/cleanup.sh", arg);
 
 			Process.Start(process);
 #endif

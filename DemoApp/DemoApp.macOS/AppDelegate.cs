@@ -1,4 +1,5 @@
 ﻿using AppKit;
+using CoreGraphics;
 using Foundation;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.MacOS;
@@ -13,12 +14,23 @@ namespace DemoApp.macOS
 		public AppDelegate()
 		{
 			var style = NSWindowStyle.Closable | NSWindowStyle.Resizable | NSWindowStyle.Titled;
+			var screen = NSScreen.MainScreen.VisibleFrame;
 
-			var rect = new CoreGraphics.CGRect(200, 1000, 1024, 768);
-			window = new NSWindow(rect, style, NSBackingStore.Buffered, false);
+			var rect = new CGSize
+			{
+				Width = 350,
+				Height = 500
+			};
+
+			var pos = new CGPoint
+			{
+				X = screen.Size.Width - rect.Width,
+				Y = screen.Size.Height - rect.Height
+			};
+
+			window = new NSWindow(new CGRect(pos, rect), style, NSBackingStore.Buffered, false);
 			window.Title = "Xamarin.Forms on Mac!"; // choose your own Title here
 			window.TitleVisibility = NSWindowTitleVisibility.Hidden;
-
 			MainWindow.ToggleFullScreen(this);
 		}
 

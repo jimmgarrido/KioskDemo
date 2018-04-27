@@ -98,6 +98,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\scripts\cleanup.sh" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Mac\Xamarin.Mac.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Forms.3.0.0.354232-pre3\build\netstandard2.0\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.3.0.0.354232-pre3\build\netstandard2.0\Xamarin.Forms.targets')" />
 </Project>
