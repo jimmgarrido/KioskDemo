@@ -4,13 +4,19 @@
              x:Class="DemoApp.FinalPage">
     <ContentPage.Content>
         <StackLayout HorizontalOptions="CenterAndExpand"
-                     VerticalOptions="CenterAndExpand">
+                     VerticalOptions="EndAndExpand"
+                     Spacing="10">
             <StackLayout Orientation="Horizontal">
                 <Switch x:Name="archiveSwitch" />
                 <Label Text="Archive my project to the desktop"/>
             </StackLayout>
-            <Button Text="Finished!"
-                Clicked="Button_Clicked" />
+            <Button Text="Finished!" Clicked="Button_Clicked">
+                <Button.HeightRequest>
+                    <OnPlatform x:TypeArguments="x:Double">
+                        <On Platform="macOS" Value="40"/>
+                    </OnPlatform>
+                </Button.HeightRequest>
+            </Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

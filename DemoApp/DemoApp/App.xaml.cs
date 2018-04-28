@@ -11,7 +11,9 @@ namespace DemoApp
 		{
 			InitializeComponent();
 
-            MainPage = new NavigationPage(new MainPage());
+			var mainPage = new MainPage();
+			NavigationPage.SetHasNavigationBar(mainPage, false);
+			MainPage = new NavigationPage(mainPage);
 		}
 
 		protected override void OnStart ()

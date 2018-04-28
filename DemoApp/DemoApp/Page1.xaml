@@ -1,16 +1,32 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DemoApp.Page1">
     <ContentPage.Content>
         <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <Button Text="Back" Grid.Column="0" VerticalOptions="End"/>
-            <Button Text="Next" Grid.Column="1" VerticalOptions="End" Clicked="Button_Clicked"/>
+            <Button Text="Back" Grid.Column="0" Grid.Row="1" Style="{StaticResource ButtonStyle}">
+                <Button.HeightRequest>
+                    <OnPlatform x:TypeArguments="x:Double">
+                        <On Platform="macOS" Value="40"/>
+                    </OnPlatform>
+                </Button.HeightRequest>
+            </Button>
+            <Button Text="Next" Grid.Column="1" Grid.Row="1" Style="{StaticResource ButtonStyle}" Clicked="Button_Clicked">
+                <Button.HeightRequest>
+                    <OnPlatform x:TypeArguments="x:Double">
+                        <On Platform="macOS" Value="40"/>
+                    </OnPlatform>
+                </Button.HeightRequest>
+            </Button>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

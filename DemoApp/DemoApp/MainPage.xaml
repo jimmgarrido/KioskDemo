@@ -1,11 +1,22 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:DemoApp"
              x:Class="DemoApp.MainPage">
 
-    <StackLayout VerticalOptions="CenterAndExpand">
-        <Button Text="Get Started" Clicked="Button_Clicked"/>
-    </StackLayout>
-
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="100"/>
+        </Grid.RowDefinitions>
+        <WebView Source="https://bing.com" Grid.Row="0" />
+        <Button Text="Get Started" Clicked="Button_Clicked" Grid.Row="1" HorizontalOptions="Center">
+            <Button.HeightRequest>
+                <OnPlatform x:TypeArguments="x:Double">
+                    <On Platform="macOS" Value="40"/>
+                </OnPlatform>
+            </Button.HeightRequest>
+        </Button>
+    </Grid>
 </ContentPage>
