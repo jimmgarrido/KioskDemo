@@ -19,3 +19,5 @@ if [ "$1" = "archive" ]; then
 fi
 
 rm -r $PROJECT_PATH
+
+echo "Clean up complete!"

@@ -35,7 +35,8 @@ namespace DemoApp
 
 			var process = new ProcessStartInfo("scripts/cleanup.sh", arg);
 
-			Process.Start(process);
+			Process.Start(process).WaitForExit();
+			Environment.Exit(0);
 #endif
 		}
 	}
