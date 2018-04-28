@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -16,9 +17,12 @@ namespace DemoApp
 			MainPage = new NavigationPage(mainPage);
 		}
 
-		protected override void OnStart ()
+		protected override void OnStart()
 		{
-			// Handle when your app starts
+#if __MACOS__
+			var process = new ProcessStartInfo("scripts/setup.sh");
+			Process.Start(process);
+#endif
 		}
 
 		protected override void OnSleep ()

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 using Xamarin.Forms;
 #if WINDOWS_UWP
 using Windows.UI.ViewManagement;
@@ -30,9 +29,6 @@ namespace DemoApp
 #elif __MACOS__
 			NSApplication.SharedApplication.MainWindow.ToggleFullScreen(NSApplication.SharedApplication.MainWindow);
 			NSApplication.SharedApplication.MainWindow.Level = NSWindowLevel.Floating;
-
-			var process = new ProcessStartInfo("scripts/setup.sh");
-			Process.Start(process);
 #endif
 			await Navigation.PushAsync(new Page1());
 		}
