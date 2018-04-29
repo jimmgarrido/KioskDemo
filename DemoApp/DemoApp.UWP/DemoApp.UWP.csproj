@@ -155,9 +155,9 @@
     </SDKReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="scripts\setup.bat">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <Content Include="scripts\setup.bat" />
+    <Content Include="project\Testing.zip" />
+    <Content Include="project\7za.exe" />
   </ItemGroup>
   <Import Project="..\DemoApp\DemoApp.projitems" Label="Shared" />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">

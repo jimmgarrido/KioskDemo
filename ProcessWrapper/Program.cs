@@ -33,9 +33,7 @@ namespace ProcessWrapper
                         Process.Start(process);
                         break;
                 }
-            }
-
-            
+            }   
         }
     }
 }

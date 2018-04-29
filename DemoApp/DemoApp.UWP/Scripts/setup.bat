@@ -1,13 +1,14 @@
 @echo off
 
-set projectdir=%USERPROFILE%\Build_Project
-set desktopdir=%USERPROFILE%\Desktop
+set project=Testing
+set projectfile=project\%project%.zip
+set desktop=%USERPROFILE%\Desktop
+set zip=project\7za.exe
 
-echo Script running!
-echo Creating directory on desktop...
+echo Extracting project to desktop...
 
-xcopy %projectdir% %desktopdir% /s /e /q
+%zip% x -o%desktop% %projectfile%  
 
 echo Opening Visual Studio...
 
-start "C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\devenv.exe" "%desktopdir%\App55\App55.sln"
+start "C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\devenv.exe" "%desktop%\%project%\%project%.sln"
