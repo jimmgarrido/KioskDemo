@@ -24,7 +24,7 @@ namespace DemoApp
             pref.CustomSize = new Windows.Foundation.Size(500, 500);
 
             await ApplicationView.GetForCurrentView().TryEnterViewModeAsync(ApplicationViewMode.CompactOverlay, pref);
-            await FullTrustProcessLauncher.LaunchFullTrustProcessForCurrentAppAsync();
+            await FullTrustProcessLauncher.LaunchFullTrustProcessForCurrentAppAsync("Setup");
 
 #elif __MACOS__
 			NSApplication.SharedApplication.MainWindow.ToggleFullScreen(NSApplication.SharedApplication.MainWindow);

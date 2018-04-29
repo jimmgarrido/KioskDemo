@@ -12,12 +12,30 @@ namespace ProcessWrapper
             var assembly = Assembly.GetExecutingAssembly().Location;
             var index = assembly.LastIndexOf("\\");
             var packageRoot = assembly.Substring(0, index);
-
+        
             Directory.SetCurrentDirectory(packageRoot);
 
-            var path = Path.Combine("scripts", "setup.bat");
-            var process = new ProcessStartInfo(path);
-            Process.Start(process);
+            string processPath;
+            ProcessStartInfo process;
+
+            if(args.Length > 2)
+            {
+                switch(args[2])
+                {
+                    case "/setup":
+                        processPath = Path.Combine("scripts", "setup.bat");
+                        process = new ProcessStartInfo(processPath);
+                        Process.Start(process);
+                        break;
+                    case "/clean":
+                        processPath = Path.Combine("scripts", "setup.bat");
+                        process = new ProcessStartInfo(processPath);
+                        Process.Start(process);
+                        break;
+                }
+            }
+
+            
         }
     }
 }
