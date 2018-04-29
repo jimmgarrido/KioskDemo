@@ -4,8 +4,16 @@
              x:Class="DemoApp.App">
 	<Application.Resources>
         <ResourceDictionary>
-            <Style x:Key="ButtonStyle" TargetType="Button">
+            <Style TargetType="Button">
                 <Setter Property="Margin" Value="0,10,0,0"/>
+                <Setter Property="HeightRequest">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="macOS" Value="40"/>
+                            <On Platform="UWP" Value="-1"/>
+                        </OnPlatform>
+                    </Setter.Value>
+                </Setter>
             </Style>
         </ResourceDictionary>
 	</Application.Resources>

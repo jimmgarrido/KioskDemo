@@ -159,6 +159,9 @@
     <Content Include="project\Testing.zip" />
     <Content Include="project\7za.exe" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="scripts\cleanup.bat" />
+  </ItemGroup>
   <Import Project="..\DemoApp\DemoApp.projitems" Label="Shared" />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

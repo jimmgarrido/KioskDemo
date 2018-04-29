@@ -23,11 +23,7 @@ namespace DemoApp
 			var arg = archiveSwitch.IsToggled ? "archive" : String.Empty;
 
 #if WINDOWS_UWP
-            var pref = ViewModePreferences.CreateDefault(ApplicationViewMode.CompactOverlay);
-            pref.CustomSize = new Windows.Foundation.Size(500, 500);
-
-            await ApplicationView.GetForCurrentView().TryEnterViewModeAsync(ApplicationViewMode.CompactOverlay, pref);
-            await FullTrustProcessLauncher.LaunchFullTrustProcessForCurrentAppAsync();
+            await FullTrustProcessLauncher.LaunchFullTrustProcessForCurrentAppAsync("Clean");
 
 #elif __MACOS__
 			NSApplication.SharedApplication.MainWindow.ToggleFullScreen(NSApplication.SharedApplication.MainWindow);

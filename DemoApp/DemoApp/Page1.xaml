@@ -13,20 +13,8 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <Button Text="Back" Grid.Column="0" Grid.Row="1" Style="{StaticResource ButtonStyle}">
-                <Button.HeightRequest>
-                    <OnPlatform x:TypeArguments="x:Double">
-                        <On Platform="macOS" Value="40"/>
-                    </OnPlatform>
-                </Button.HeightRequest>
-            </Button>
-            <Button Text="Next" Grid.Column="1" Grid.Row="1" Style="{StaticResource ButtonStyle}" Clicked="Button_Clicked">
-                <Button.HeightRequest>
-                    <OnPlatform x:TypeArguments="x:Double">
-                        <On Platform="macOS" Value="40"/>
-                    </OnPlatform>
-                </Button.HeightRequest>
-            </Button>
+            <Button Text="Back" Grid.Column="0" Grid.Row="1"/>
+            <Button Text="Next" Grid.Column="1" Grid.Row="1" Clicked="Button_Clicked"/>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

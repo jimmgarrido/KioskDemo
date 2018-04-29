@@ -28,7 +28,7 @@ namespace ProcessWrapper
                         Process.Start(process);
                         break;
                     case "/clean":
-                        processPath = Path.Combine("scripts", "setup.bat");
+                        processPath = Path.Combine("scripts", "cleanup.bat");
                         process = new ProcessStartInfo(processPath);
                         Process.Start(process);
                         break;
