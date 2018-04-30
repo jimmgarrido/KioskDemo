@@ -8,16 +8,16 @@ pkill Visual Studio
 
 cd $PROJECT_PATH
 
-echo $1
-echo "Cleaning bin/ and obj/ directories..."
-find . -maxdepth 2 \( -name bin -o -name obj -o -name .vs \) -type d -exec rm -r {} +
-
 if [ "$1" = "archive" ]; then
+    echo "Cleaning bin/ and obj/ directories..."
+    find . -maxdepth 2 \( -name bin -o -name obj -o -name .vs \) -type d -exec rm -r {} +
+    
     echo "Zipping project to desktop..."
     zip -r $PROJECT_NAME.zip .
     mv $PROJECT_NAME.zip $DESKTOP_PATH
 fi
 
+echo "Deleting project files..."
 rm -r $PROJECT_PATH
 
 echo "Clean up complete!"

@@ -23,7 +23,10 @@ namespace DemoApp
 			var arg = archiveSwitch.IsToggled ? "archive" : String.Empty;
 
 #if WINDOWS_UWP
-            await FullTrustProcessLauncher.LaunchFullTrustProcessForCurrentAppAsync("Clean");
+			if(arg == String.Empty)
+				await FullTrustProcessLauncher.LaunchFullTrustProcessForCurrentAppAsync("Clean");
+			else
+				await FullTrustProcessLauncher.LaunchFullTrustProcessForCurrentAppAsync("Archive");
 
 #elif __MACOS__
 			NSApplication.SharedApplication.MainWindow.ToggleFullScreen(NSApplication.SharedApplication.MainWindow);

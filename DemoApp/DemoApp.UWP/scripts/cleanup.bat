@@ -6,6 +6,9 @@ set desktop=%USERPROFILE%\Desktop
 set zip=project\7za.exe
 set reset=%cd%
 
+echo %1
+echo %2
+
 echo Cleaning project directory...
 
 cd %desktop%\%project%
