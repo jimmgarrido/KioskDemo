@@ -32,6 +32,14 @@ namespace ProcessWrapper
                         process = new ProcessStartInfo(processPath);
                         Process.Start(process);
                         break;
+                    case "/archive":
+                        processPath = Path.Combine("scripts", "cleanup.bat");
+                        process = new ProcessStartInfo(processPath)
+                        {
+                            Arguments = "archive"
+                        };
+                        Process.Start(process);
+                        break;
                 }
             }   
         }
