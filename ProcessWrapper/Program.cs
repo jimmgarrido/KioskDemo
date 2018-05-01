@@ -25,17 +25,20 @@ namespace ProcessWrapper
                     case "/setup":
                         processPath = Path.Combine("scripts", "setup.bat");
                         process = new ProcessStartInfo(processPath);
+                        process.WindowStyle = ProcessWindowStyle.Minimized;
                         Process.Start(process);
                         break;
                     case "/clean":
                         processPath = Path.Combine("scripts", "cleanup.bat");
                         process = new ProcessStartInfo(processPath);
+                        process.WindowStyle = ProcessWindowStyle.Minimized;
                         Process.Start(process);
                         break;
                     case "/archive":
                         processPath = Path.Combine("scripts", "cleanup.bat");
                         process = new ProcessStartInfo(processPath)
                         {
+                            WindowStyle = ProcessWindowStyle.Hidden,
                             Arguments = "archive"
                         };
                         Process.Start(process);

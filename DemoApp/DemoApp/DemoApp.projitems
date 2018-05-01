@@ -27,6 +27,10 @@
       <DependentUpon>Page1.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)RestartPage.xaml.cs">
+      <DependentUpon>RestartPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)FinalPage.xaml">
@@ -38,6 +42,12 @@
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Page1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)RestartPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
   </ItemGroup>
 </Project>

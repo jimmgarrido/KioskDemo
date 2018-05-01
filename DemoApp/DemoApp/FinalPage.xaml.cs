@@ -2,8 +2,8 @@
 using System.Diagnostics;
 using Xamarin.Forms;
 #if WINDOWS_UWP
+using Windows.ApplicationModel.Core;
 using Windows.UI.ViewManagement;
-using Windows.UI.Xaml;
 using Windows.ApplicationModel;
 #elif __MACOS__
 using AppKit;
@@ -27,12 +27,17 @@ namespace DemoApp
             if (arg == String.Empty)
             {
                 await FullTrustProcessLauncher.LaunchFullTrustProcessForCurrentAppAsync("Clean");
-                await Navigation.PopToRootAsync();
+                //await Navigation.PopToRootAsync();
+                await CoreApplication.RequestRestartAsync("Application Restart Programmatically ");
             }
             else
             {
                 await FullTrustProcessLauncher.LaunchFullTrustProcessForCurrentAppAsync("Archive");
-                await ApplicationView.GetForCurrentView().TryConsolidateAsync();
+                await Navigation.PushAsync(new RestartPage());
+                var pref = ViewModePreferences.CreateDefault(ApplicationViewMode.CompactOverlay);
+                pref.CustomSize = new Windows.Foundation.Size(400, 600);
+
+                await ApplicationView.GetForCurrentView().TryEnterViewModeAsync(ApplicationViewMode.CompactOverlay, pref);
             }
 
 #elif __MACOS__
