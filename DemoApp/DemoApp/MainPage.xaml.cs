@@ -17,11 +17,11 @@ namespace DemoApp
 			InitializeComponent();
 		}
 
-		private async void Button_Clicked(object sender, EventArgs e)
+		private async void GoBtnClicked(object sender, EventArgs e)
 		{
 #if WINDOWS_UWP
             var pref = ViewModePreferences.CreateDefault(ApplicationViewMode.CompactOverlay);
-            pref.CustomSize = new Windows.Foundation.Size(500, 500);
+            pref.CustomSize = new Windows.Foundation.Size(100, 500);
 
             await ApplicationView.GetForCurrentView().TryEnterViewModeAsync(ApplicationViewMode.CompactOverlay, pref);
 #elif __MACOS__

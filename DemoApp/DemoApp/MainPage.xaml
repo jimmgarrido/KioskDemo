@@ -3,21 +3,44 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:DemoApp"
              x:Class="DemoApp.MainPage">
+    <RelativeLayout BackgroundColor="Black">
+        <Image Source="build_bg.png" Aspect="Fill"
+               RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Constant=-800}" 
+               RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=1}"/>
 
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="100"/>
-        </Grid.RowDefinitions>
-        <WebView Source="https://bing.com" Grid.Row="0" />
-        <Button Text="Get Started" Clicked="Button_Clicked" Grid.Row="1" HorizontalOptions="Center">
-            <Button.HeightRequest>
-                <OnPlatform x:TypeArguments="x:Double">
-                    <On Platform="macOS" Value="40"/>
-                    <On Platform="UWP" Value="-1"/>
-                </OnPlatform>
-            </Button.HeightRequest>
-        </Button>
-    </Grid>
+        <Image Source="logo.png"
+               RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=0,Constant=20}"/>
+        <Grid RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=1}"
+              RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=1}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="200"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="20"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="20"/>
+            </Grid.ColumnDefinitions>
+
+            <StackLayout Grid.Row="1" Grid.Column="1" Grid.RowSpan="2" Spacing="10">
+                <Label Text="Make Your Mobile //Build App!" Style="{StaticResource LargeHeaderLabel}"/>
+                <Label Text="Take photos and let Vision AI work for you." Style="{StaticResource LargeSubHeaderLabel}" />
+                <Label Text="Earn achievements." Style="{StaticResource LargeSubHeaderLabel}"/>
+                <Label Text="Explore what's new in Xamarin.Forms 3.0" Style="{StaticResource LargeSubHeaderLabel}"/>
+            </StackLayout>
+
+            <StackLayout Grid.Row="2" Grid.Column="3" Orientation="Horizontal" Spacing="20">
+                <Image Source="timer_button.png" HeightRequest="200" />
+                <Image Source="go_button.png" HeightRequest="200">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="GoBtnClicked"/>
+                    </Image.GestureRecognizers>
+                </Image>
+            </StackLayout>
+        </Grid>
+    </RelativeLayout>
 </ContentPage>

@@ -15,6 +15,18 @@
                     </Setter.Value>
                 </Setter>
             </Style>
+
+            <Style TargetType="Label">
+                <Setter Property="TextColor" Value="White"/>
+            </Style>
+
+            <Style x:Key="LargeHeaderLabel" TargetType="Label">
+                <Setter Property="FontSize" Value="56"/>
+            </Style>
+
+            <Style x:Key="LargeSubHeaderLabel" TargetType="Label">
+                <Setter Property="FontSize" Value="32"/>
+            </Style>
         </ResourceDictionary>
 	</Application.Resources>
 </Application>
