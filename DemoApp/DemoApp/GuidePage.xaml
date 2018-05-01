@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:view="clr-namespace:Xam.Forms.Markdown;assembly=Xam.Forms.MarkdownView"
+             x:Class="DemoApp.GuidePage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="ProgressBtn" TargetType="Button">
+                <Setter Property="HeightRequest" Value="30"/>
+                <Setter Property="WidthRequest" Value="30"/>
+                <Setter Property="CornerRadius" Value="50"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid BackgroundColor="Black">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+
+            <ScrollView Grid.Row="0">
+                <view:MarkdownView x:Name="markdown" />
+            </ScrollView>
+
+            <StackLayout Grid.Row="1" Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Spacing="20" Margin="0,0,0,20">
+                <Button x:Name="OneBtn" Style="{StaticResource ProgressBtn}" BackgroundColor="#e3008c"/>
+                <Button x:Name="TwoBtn" Style="{StaticResource ProgressBtn}" BackgroundColor="#9b9b9b"/>
+                <Button x:Name="ThreeBtn" Style="{StaticResource ProgressBtn}" BackgroundColor="#9b9b9b"/>
+                <Button x:Name="FourBtn" Style="{StaticResource ProgressBtn}" BackgroundColor="#9b9b9b"/>
+            </StackLayout>
+
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid x:Name="BackBtn" BackgroundColor="#505050" Grid.Column="0" IsVisible="False">
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="PrevBtnClicked"/>
+                    </Grid.GestureRecognizers>
+                    <Label Text="BACK" VerticalOptions="Center" HorizontalOptions="Center"/>
+                </Grid>
+                <Grid BackgroundColor="#e3008c" Grid.Column="1">
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="NextBtnClicked"/>
+                    </Grid.GestureRecognizers>
+                    <Label Text="NEXT" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                </Grid>
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

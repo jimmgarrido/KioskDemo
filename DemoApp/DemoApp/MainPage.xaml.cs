@@ -29,7 +29,7 @@ namespace DemoApp
 			NSApplication.SharedApplication.MainWindow.ToggleFullScreen(NSApplication.SharedApplication.MainWindow);
 			NSApplication.SharedApplication.MainWindow.Level = NSWindowLevel.Floating;
 #endif
-			await Navigation.PushAsync(new Page1());
+			await Navigation.PushAsync(new GuidePage());
 		}
     }
 }
