@@ -78,7 +78,14 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\AppIcon-512%402x.png" />
     <ImageAsset Include="Assets.xcassets\Contents.json" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <BundleResource Include="Resources\build_bg.png" />
+    <BundleResource Include="Resources\go_button.png" />
+    <BundleResource Include="Resources\logo.png" />
+    <BundleResource Include="Resources\phone.png" />
+    <BundleResource Include="Resources\reset_button.png" />
+    <BundleResource Include="Resources\timer_button.png" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
     <None Include="Entitlements.plist" />
