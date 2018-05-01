@@ -13,15 +13,17 @@ namespace DemoApp
 {
 	public partial class RestartPage : ContentPage
 	{
-		public RestartPage ()
+		public RestartPage()
 		{
-			InitializeComponent ();
-            NavigationPage.SetHasNavigationBar(this, false);
+			InitializeComponent();
+			NavigationPage.SetHasNavigationBar(this, false);
 		}
 
-        private async void ResetClicked(object sender, EventArgs e)
-        {
-            await CoreApplication.RequestRestartAsync("Application Restart Programmatically ");
-        }
+		private async void ResetClicked(object sender, EventArgs e)
+		{
+#if WINDOWS_UWP
+			await CoreApplication.RequestRestartAsync("Application Restart Programmatically ");
+#endif
+		}
     }
 }

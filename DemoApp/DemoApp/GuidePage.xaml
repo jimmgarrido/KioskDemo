@@ -8,7 +8,7 @@
             <Style x:Key="ProgressBtn" TargetType="Button">
                 <Setter Property="HeightRequest" Value="30"/>
                 <Setter Property="WidthRequest" Value="30"/>
-                <Setter Property="CornerRadius" Value="50"/>
+                <Setter Property="CornerRadius" Value="15"/>
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
@@ -25,7 +25,7 @@
             </ScrollView>
 
             <StackLayout Grid.Row="1" Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Spacing="20" Margin="0,0,0,20">
-                <Button x:Name="OneBtn" Style="{StaticResource ProgressBtn}" BackgroundColor="#e3008c"/>
+                <Button x:Name="OneBtn" Style="{StaticResource ProgressBtn}" BackgroundColor="#e3008c" Clicked="Handle_Clicked"/>
                 <Button x:Name="TwoBtn" Style="{StaticResource ProgressBtn}" BackgroundColor="#9b9b9b"/>
                 <Button x:Name="ThreeBtn" Style="{StaticResource ProgressBtn}" BackgroundColor="#9b9b9b"/>
                 <Button x:Name="FourBtn" Style="{StaticResource ProgressBtn}" BackgroundColor="#9b9b9b"/>

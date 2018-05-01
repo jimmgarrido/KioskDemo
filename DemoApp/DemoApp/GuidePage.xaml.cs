@@ -34,8 +34,19 @@ namespace DemoApp
 		{
             if (++pageIndex >= pageCount)
             {
-                pageIndex = 2;
-                return;
+#if WINDOWS_UWP
+                var pref = ViewModePreferences.CreateDefault(ApplicationViewMode.Default);
+                pref.CustomSize = new Windows.Foundation.Size(800, 600);
+
+                await ApplicationView.GetForCurrentView().TryEnterViewModeAsync(ApplicationViewMode.Default, pref);
+#elif __MACOS__
+				NSApplication.SharedApplication.MainWindow.Level = NSWindowLevel.Normal;
+				NSApplication.SharedApplication.MainWindow.ToggleFullScreen(NSApplication.SharedApplication.MainWindow);
+#endif
+				await Navigation.PushAsync(new FinalPage());
+				pageIndex = pageCount - 1;
+
+				return;
             }
 
             markdown.Markdown = Markdown.GetPageContent(pageIndex);
@@ -43,16 +54,7 @@ namespace DemoApp
 
             UpdateProgressButtons();
 
-            //#if WINDOWS_UWP
-            //            var pref = ViewModePreferences.CreateDefault(ApplicationViewMode.Default);
-            //            pref.CustomSize = new Windows.Foundation.Size(800, 600);
-
-            //            await ApplicationView.GetForCurrentView().TryEnterViewModeAsync(ApplicationViewMode.Default, pref);
-            //#elif __MACOS__
-            //			NSApplication.SharedApplication.MainWindow.Level = NSWindowLevel.Normal;
-            //			NSApplication.SharedApplication.MainWindow.ToggleFullScreen(NSApplication.SharedApplication.MainWindow);
-            //#endif
-            //            await Navigation.PushAsync(new FinalPage());
+           
         }
 
         private void PrevBtnClicked(object sender, EventArgs e)
@@ -66,14 +68,23 @@ namespace DemoApp
             UpdateProgressButtons();
         }
 
+		void Handle_Clicked(object sender, System.EventArgs e)
+		{
+			
+		}
+
         private void UpdateProgressButtons()
         {
             for(int i=0; i<pageCount; i++)
             {
-                if (i == pageIndex)
-                    progressBtns[i].BackgroundColor = activeColor;
-                else
-                    progressBtns[i].BackgroundColor = otherColor;
+				if (i == pageIndex)
+				{
+					progressBtns[i].BackgroundColor = activeColor;
+				}
+				else
+				{
+					progressBtns[i].BackgroundColor = otherColor;
+				}
             }
         }
     }

@@ -16,9 +16,10 @@ namespace DemoApp.macOS
 			if(Control != null)
 			{
 				var button = Control as NSButton;
-				button.BezelStyle = NSBezelStyle.Rounded;
-
+				button.BezelStyle = NSBezelStyle.Circular;
+				button.Transparent = true;
 			}
+
 		}
 	}
 }

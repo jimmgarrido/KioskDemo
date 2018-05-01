@@ -50,5 +50,20 @@ namespace DemoApp
 			Environment.Exit(0);
 #endif
         }
+
+		async void BackBtnClicked(object sender, System.EventArgs e)
+		{
+#if WINDOWS_UWP
+			var pref = ViewModePreferences.CreateDefault(ApplicationViewMode.CompactOverlay);
+            pref.CustomSize = new Windows.Foundation.Size(400, 600);
+
+            await ApplicationView.GetForCurrentView().TryEnterViewModeAsync(ApplicationViewMode.CompactOverlay, pref);
+#elif __MACOS__
+			NSApplication.SharedApplication.MainWindow.ToggleFullScreen(NSApplication.SharedApplication.MainWindow);
+			NSApplication.SharedApplication.MainWindow.Level = NSWindowLevel.Floating;
+
+#endif
+			await Navigation.PopAsync();
+		}
 	}
 }

@@ -22,7 +22,6 @@
                     <ColumnDefinition Width="50"/>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="auto"/>
-                    <ColumnDefinition Width="auto"/>
                     <ColumnDefinition Width="20"/>
                 </Grid.ColumnDefinitions>
 
@@ -41,7 +40,13 @@
                     <Label Text="Visit these booths and learn more.*" Style="{StaticResource LargeSubHeaderLabel}" />
                 </StackLayout> 
 
-                <StackLayout Grid.Row="2" Grid.Column="3" Orientation="Horizontal" Spacing="20">
+                <Image Source="back_button.png" Grid.Row="2" Grid.Column="1" HeightRequest="90"
+                       WidthRequest="90" HorizontalOptions="Start" VerticalOptions="Center">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="BackBtnClicked" />
+                    </Image.GestureRecognizers>
+                </Image>
+                <StackLayout Grid.Row="2" Grid.Column="2" Orientation="Horizontal" Spacing="20">
                     <Image Source="reset_button.png" HeightRequest="200" WidthRequest="200">
                         <Image.GestureRecognizers>
                             <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="ResetBtnClicked"/>

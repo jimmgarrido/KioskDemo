@@ -97,6 +97,7 @@
     <BundleResource Include="Resources\timer_button.png" />
     <BundleResource Include="Resources\reset_button.png" />
     <BundleResource Include="Resources\phone.png" />
+    <BundleResource Include="Resources\back_button.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Assets.xcassets\goBtn.png.imageset\" />
