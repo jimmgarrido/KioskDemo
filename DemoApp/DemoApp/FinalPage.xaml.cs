@@ -16,17 +16,24 @@ namespace DemoApp
 		public FinalPage ()
 		{
 			InitializeComponent ();
+            NavigationPage.SetHasNavigationBar(this, false);
 		}
 
-		private async void Button_Clicked(object sender, EventArgs e)
+		private async void ResetBtnClicked(object sender, EventArgs e)
 		{
-			var arg = archiveSwitch.IsToggled ? "archive" : String.Empty;
+            var arg = (sender.GetType() == typeof(Frame)) ? "archive" : String.Empty;
 
 #if WINDOWS_UWP
-			if(arg == String.Empty)
-				await FullTrustProcessLauncher.LaunchFullTrustProcessForCurrentAppAsync("Clean");
-			else
-				await FullTrustProcessLauncher.LaunchFullTrustProcessForCurrentAppAsync("Archive");
+            if (arg == String.Empty)
+            {
+                await FullTrustProcessLauncher.LaunchFullTrustProcessForCurrentAppAsync("Clean");
+                await Navigation.PopToRootAsync();
+            }
+            else
+            {
+                await FullTrustProcessLauncher.LaunchFullTrustProcessForCurrentAppAsync("Archive");
+                await ApplicationView.GetForCurrentView().TryConsolidateAsync();
+            }
 
 #elif __MACOS__
 			NSApplication.SharedApplication.MainWindow.ToggleFullScreen(NSApplication.SharedApplication.MainWindow);
@@ -37,6 +44,6 @@ namespace DemoApp
 			Process.Start(process).WaitForExit();
 			Environment.Exit(0);
 #endif
-		}
+        }
 	}
 }

@@ -15,13 +15,14 @@ namespace DemoApp
 		public MainPage()
 		{
 			InitializeComponent();
-		}
+            NavigationPage.SetHasNavigationBar(this, false);
+        }
 
 		private async void GoBtnClicked(object sender, EventArgs e)
 		{
 #if WINDOWS_UWP
             var pref = ViewModePreferences.CreateDefault(ApplicationViewMode.CompactOverlay);
-            pref.CustomSize = new Windows.Foundation.Size(100, 500);
+            pref.CustomSize = new Windows.Foundation.Size(400, 600);
 
             await ApplicationView.GetForCurrentView().TryEnterViewModeAsync(ApplicationViewMode.CompactOverlay, pref);
 #elif __MACOS__

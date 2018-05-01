@@ -27,6 +27,10 @@
             <Style x:Key="LargeSubHeaderLabel" TargetType="Label">
                 <Setter Property="FontSize" Value="32"/>
             </Style>
+
+            <Style x:Key="ArchiveLabel" TargetType="Label">
+                <Setter Property="FontSize" Value="36"/>
+            </Style>
         </ResourceDictionary>
 	</Application.Resources>
 </Application>

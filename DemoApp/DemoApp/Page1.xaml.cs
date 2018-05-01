@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+using Windows.UI.ViewManagement;
+using Xam.Forms.Markdown;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace DemoApp
 {
@@ -14,11 +10,29 @@ namespace DemoApp
 		public Page1 ()
 		{
 			InitializeComponent ();
-		}
+            NavigationPage.SetHasNavigationBar(this, false);
 
-        private void Button_Clicked(object sender, EventArgs e)
+            markdown.Theme = new MyMarkdownTheme();
+            markdown.Markdown = "# 5 Minute Start: Exploring Xamarin.Forms 3.0\n\nLet's get a quick taste of building beautiful mobile apps with Xamarin.Forms 3.0. In this quick walkthrough you will:\n\n* Personalize the app\n*Extend the app with cross-platform features\n* Use FlexLayout and CSS to create a fluid layout\n*Deploy to your own device!\n\n> If you're on Windows you can use the new Live Reload (Preview) to see your XAML changes without leaving your debug session. Simply make changes to your XAML and save the file.";
+        }
+
+        private async void Button_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new FinalPage());
+#if WINDOWS_UWP
+            var pref = ViewModePreferences.CreateDefault(ApplicationViewMode.Default);
+            pref.CustomSize = new Windows.Foundation.Size(800, 600);
+
+            await ApplicationView.GetForCurrentView().TryEnterViewModeAsync(ApplicationViewMode.Default, pref);
+#endif
+            await Navigation.PushAsync(new FinalPage());
+        }
+    }
+
+    public class MyMarkdownTheme : DarkMarkdownTheme
+    {
+        public MyMarkdownTheme()
+        {
+            BackgroundColor = Color.Black;
         }
     }
 }

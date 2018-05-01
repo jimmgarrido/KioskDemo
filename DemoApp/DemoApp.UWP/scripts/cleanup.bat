@@ -22,6 +22,4 @@ echo Archiving project to the desktop...
 )
 
 echo Removing project files...
-rmdir /s %desktop%\%project%
-
-pause
+rmdir /s /q %desktop%\%project%
