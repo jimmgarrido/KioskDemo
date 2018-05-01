@@ -4,11 +4,11 @@
              x:Class="DemoApp.FinalPage">
     <ContentPage.Content>
         <RelativeLayout BackgroundColor="Black">
-            <Image Source="build_bg.png" Aspect="Fill"
+            <Image Source="build_bg.png" Aspect="Fill" WidthRequest="800"
                RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Constant=-800}" 
                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=1}"/>
 
-            <Image Source="logo.png"
+            <Image Source="logo.png" WidthRequest="313" HeightRequest="126"
                RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=0,Constant=20}"/>
             <Grid RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=1}"
               RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=1}">
@@ -30,7 +30,7 @@
                     <Label Text="Congratulations! You're a Mobile Developer!" Style="{StaticResource LargeHeaderLabel}"/>
                     <Label Text="Before you go, why not take your code with you." Style="{StaticResource LargeSubHeaderLabel}" />
 
-                    <Frame OutlineColor="#e3008c" HasShadow="False" HorizontalOptions="Start" Margin="0,50,0,50">
+                    <Frame OutlineColor="#e3008c" HasShadow="False" BackgroundColor="Black" HorizontalOptions="Start" Margin="0,50,0,50">
                         <Frame.GestureRecognizers>
                             <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="ResetBtnClicked"/>
                         </Frame.GestureRecognizers>
@@ -42,7 +42,7 @@
                 </StackLayout> 
 
                 <StackLayout Grid.Row="2" Grid.Column="3" Orientation="Horizontal" Spacing="20">
-                    <Image Source="reset_button.png" HeightRequest="200">
+                    <Image Source="reset_button.png" HeightRequest="200" WidthRequest="200">
                         <Image.GestureRecognizers>
                             <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="ResetBtnClicked"/>
                         </Image.GestureRecognizers>

@@ -79,14 +79,6 @@
     <ImageAsset Include="Assets.xcassets\Contents.json" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\build_bg.png" />
-    <BundleResource Include="Resources\go_button.png" />
-    <BundleResource Include="Resources\logo.png" />
-    <BundleResource Include="Resources\phone.png" />
-    <BundleResource Include="Resources\reset_button.png" />
-    <BundleResource Include="Resources\timer_button.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Info.plist" />
     <None Include="Entitlements.plist" />
   </ItemGroup>
@@ -99,6 +91,16 @@
     <BundleResource Include="Resources\scripts\cleanup.sh" />
     <BundleResource Include="Resources\Testing.zip" />
     <BundleResource Include="Resources/scripts/setup.sh" />
+    <BundleResource Include="Resources\go_button.png" />
+    <BundleResource Include="Resources\build_bg.png" />
+    <BundleResource Include="Resources\logo.png" />
+    <BundleResource Include="Resources\timer_button.png" />
+    <BundleResource Include="Resources\reset_button.png" />
+    <BundleResource Include="Resources\phone.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Assets.xcassets\goBtn.png.imageset\" />
+    <Folder Include="Assets.xcassets\background.png.imageset\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Mac\Xamarin.Mac.CSharp.targets" />
 </Project>

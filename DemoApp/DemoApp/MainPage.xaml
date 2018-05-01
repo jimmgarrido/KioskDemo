@@ -3,12 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:DemoApp"
              x:Class="DemoApp.MainPage">
+            
     <RelativeLayout BackgroundColor="Black">
-        <Image Source="build_bg.png" Aspect="Fill"
-               RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Constant=-800}" 
-               RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=1}"/>
+        <Image Source="build_bg.png" Aspect="Fill" WidthRequest="800"
+               RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=1, Constant=-800}" 
+               RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=1}" />
 
-        <Image Source="logo.png"
+        <Image Source="logo.png" WidthRequest="313" HeightRequest="126"
                RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=0,Constant=20}"/>
         <Grid RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=1}"
               RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=1}">
@@ -34,8 +35,8 @@
             </StackLayout>
 
             <StackLayout Grid.Row="2" Grid.Column="3" Orientation="Horizontal" Spacing="20">
-                <Image Source="timer_button.png" HeightRequest="200" />
-                <Image Source="go_button.png" HeightRequest="200">
+                <Image Source="timer_button.png" HeightRequest="200" WidthRequest="200"/>
+                <Image Source="go_button.png" HeightRequest="200" WidthRequest="200">
                     <Image.GestureRecognizers>
                         <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="GoBtnClicked"/>
                     </Image.GestureRecognizers>
