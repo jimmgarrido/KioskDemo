@@ -103,6 +103,7 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="back_button.png" />
     <Content Include="build_bg.png" />
     <Content Include="Assets\LargeTile.scale-100.png" />
     <Content Include="Assets\LargeTile.scale-200.png" />
