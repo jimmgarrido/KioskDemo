@@ -111,6 +111,8 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app_center.png" />
+    <Content Include="azure.png" />
     <Content Include="back_button.png" />
     <Content Include="build_bg.png" />
     <Content Include="Assets\LargeTile.scale-100.png" />
@@ -143,12 +145,17 @@
     <Content Include="phone.png" />
     <Content Include="go_button.png" />
     <Content Include="logo.png" />
+    <Content Include="phone_active.png" />
+    <Content Include="phone_progress.png" />
     <Content Include="scripts\ProcessWrapper.exe">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="reset_button.png" />
     <Content Include="timer_button.png" />
+    <Content Include="xamarin.png" />
+    <Content Include="vs_mac.png" />
+    <Content Include="vs.png" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">

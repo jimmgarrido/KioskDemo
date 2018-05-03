@@ -14,8 +14,8 @@
 
         <Image Source="phone.png" WidthRequest="517" HeightRequest="585"
                RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=0,Constant=300}"
-               RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=1,Constant=0}"/>
-               
+               RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=1,Constant=-585}"/>
+
         <Grid RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=1}"
               RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=1}">
             <Grid.RowDefinitions>
@@ -32,7 +32,7 @@
                 <ColumnDefinition Width="20"/>
             </Grid.ColumnDefinitions>
 
-            <StackLayout Grid.Row="1" Grid.Column="1" Grid.RowSpan="2" Spacing="10">
+            <StackLayout Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Spacing="10">
                 <Label Text="Make Your Mobile //Build App!" Style="{StaticResource LargeHeaderLabel}"/>
                 <Label Text="Take photos and let Vision AI work for you." Style="{StaticResource LargeSubHeaderLabel}" />
                 <Label Text="Earn achievements." Style="{StaticResource LargeSubHeaderLabel}"/>

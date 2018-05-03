@@ -12,7 +12,8 @@ namespace ProcessWrapper
             var assembly = Assembly.GetExecutingAssembly().Location;
             var index = assembly.LastIndexOf("\\");
             var directory = assembly.Substring(0, index);
-        
+
+            System.Diagnostics.Debug.WriteLine(directory);
             Directory.SetCurrentDirectory(directory);
 
             string processPath;
