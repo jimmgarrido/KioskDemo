@@ -1,9 +1,9 @@
 @echo off
 
 set project=Testing
-set projectfile=project\%project%.zip
+set projectfile=..\project\%project%.zip
 set desktop=%USERPROFILE%\Desktop
-set zip=project\7za.exe
+set zip=..\project\7za.exe
 
 echo Extracting project to desktop...
 

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities" xmlns:desktop="http://schemas.microsoft.com/appx/manifest/desktop/windows10" IgnorableNamespaces="uap mp rescap desktop">
-  <Identity Name="270d3196-7832-4fb6-a61e-102f9b3cbcdc" Publisher="CN=a2041218-7d41-4473-a2fb-cb215781713e" Version="1.0.0.0" />
+  <Identity Name="270d3196-7832-4fb6-a61e-102f9b3cbcdc" Publisher="CN=a2041218-7d41-4473-a2fb-cb215781713e" Version="1.0.5.0" />
   <mp:PhoneIdentity PhoneProductId="ec0cc741-fd3e-485c-81be-68815c480690" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>DemoApp.UWP</DisplayName>
