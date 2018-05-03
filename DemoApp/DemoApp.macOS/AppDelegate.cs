@@ -19,7 +19,7 @@ namespace DemoApp.macOS
 			var rect = new CGSize
 			{
 				Width = 350,
-				Height = 500
+				Height = 650
 			};
 
 			var pos = new CGPoint

@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:view="clr-namespace:Xam.Forms.Markdown;assembly=Xam.Forms.MarkdownView"
+             xmlns:local="clr-namespace:DemoApp"
              x:Class="DemoApp.GuidePage">
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -25,10 +26,10 @@
             </ScrollView>
 
             <StackLayout Grid.Row="1" Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Spacing="20" Margin="0,0,0,20">
-                <Button x:Name="OneBtn" Style="{StaticResource ProgressBtn}" BackgroundColor="#e3008c" Clicked="Handle_Clicked"/>
-                <Button x:Name="TwoBtn" Style="{StaticResource ProgressBtn}" BackgroundColor="#9b9b9b"/>
-                <Button x:Name="ThreeBtn" Style="{StaticResource ProgressBtn}" BackgroundColor="#9b9b9b"/>
-                <Button x:Name="FourBtn" Style="{StaticResource ProgressBtn}" BackgroundColor="#9b9b9b"/>
+                <local:ProgressButton x:Name="BtnOne" Index="0" Style="{StaticResource ProgressBtn}" BackgroundColor="#e3008c" Clicked="ProgressBtnClicked"/>
+                <local:ProgressButton x:Name="BtnTwo" Index="1" Style="{StaticResource ProgressBtn}" BackgroundColor="#9b9b9b" Clicked="ProgressBtnClicked"/>
+                <local:ProgressButton x:Name="BtnThree" Index="2" Style="{StaticResource ProgressBtn}" BackgroundColor="#9b9b9b" Clicked="ProgressBtnClicked"/>
+                <local:ProgressButton x:Name="BtnFour" Index="3" Style="{StaticResource ProgressBtn}" BackgroundColor="#9b9b9b" Clicked="ProgressBtnClicked"/>
             </StackLayout>
 
             <Grid Grid.Row="2">

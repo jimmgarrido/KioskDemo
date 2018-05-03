@@ -11,8 +11,6 @@ namespace DemoApp
 {
 	public partial class GuidePage : ContentPage
 	{
-        int pageIndex = 0;
-        int pageCount = 3;
         Color activeColor = Color.FromHex("#e3008c");
         Color otherColor = Color.FromHex("9b9b9b");
         Button[] progressBtns;
@@ -23,17 +21,17 @@ namespace DemoApp
 			NavigationPage.SetHasNavigationBar(this, false);
 
 			markdown.Theme = new MyMarkdownTheme();
-            markdown.Markdown = Markdown.GetPageContent(pageIndex);
+			markdown.Markdown = Markdown.GetNextPage();
 
             progressBtns = new Button[] {
-                OneBtn, TwoBtn, ThreeBtn, FourBtn
+                BtnOne, BtnTwo, BtnThree, BtnFour
             };
 		}
 
 		private async void NextBtnClicked(object sender, EventArgs e)
 		{
-            if (++pageIndex >= pageCount)
-            {
+			if (Markdown.IsLastPage)
+			{
 #if WINDOWS_UWP
                 var pref = ViewModePreferences.CreateDefault(ApplicationViewMode.Default);
                 pref.CustomSize = new Windows.Foundation.Size(800, 600);
@@ -44,40 +42,47 @@ namespace DemoApp
 				NSApplication.SharedApplication.MainWindow.ToggleFullScreen(NSApplication.SharedApplication.MainWindow);
 #endif
 				await Navigation.PushAsync(new FinalPage());
-				pageIndex = pageCount - 1;
+			}
+			else
+			{
+				markdown.Markdown = Markdown.GetNextPage();
+				BackBtn.IsVisible = true;
 
-				return;
-            }
-
-            markdown.Markdown = Markdown.GetPageContent(pageIndex);
-            BackBtn.IsVisible = true;
-
-            UpdateProgressButtons();
-
-           
+				UpdateProgressButtons();
+			} 
         }
 
         private void PrevBtnClicked(object sender, EventArgs e)
         {
-            if (--pageIndex == 0)
-                BackBtn.IsVisible = false;
-            else
-                BackBtn.IsVisible = true;
-
-            markdown.Markdown = Markdown.GetPageContent(pageIndex);
+			if(Markdown.WillBeFirstPage)
+				BackBtn.IsVisible = false;
+			else
+				BackBtn.IsVisible = true;
+			
+			markdown.Markdown = Markdown.GetPrevPage();
             UpdateProgressButtons();
         }
 
-		void Handle_Clicked(object sender, System.EventArgs e)
+		void ProgressBtnClicked(object sender, EventArgs e)
 		{
-			
+			var index = (sender as ProgressButton).Index;
+
+			if (index == Markdown.Index)
+				return;
+			else if (index == 0)
+				BackBtn.IsVisible = false;
+			else
+				BackBtn.IsVisible = true;
+
+			markdown.Markdown = Markdown.GetPage(index);
+			UpdateProgressButtons();
 		}
 
         private void UpdateProgressButtons()
         {
-            for(int i=0; i<pageCount; i++)
+			for(int i=0; i<Markdown.PageCount; i++)
             {
-				if (i == pageIndex)
+				if (i == Markdown.Index)
 				{
 					progressBtns[i].BackgroundColor = activeColor;
 				}
@@ -96,4 +101,26 @@ namespace DemoApp
             BackgroundColor = Color.Black;
         }
     }
+
+	public class ProgressButton : Button
+	{
+		public static BindableProperty IndexProperty = 
+			BindableProperty.Create("Index", typeof(int), typeof(ProgressButton), -1);
+
+		public static BindableProperty IsActiveProperty =
+			BindableProperty.Create("IsActive", typeof(bool), typeof(ProgressButton), false);
+		
+		public int Index
+		{
+			get 
+			{
+				return (int)GetValue(IndexProperty);
+			}
+			set
+			{
+				SetValue(IndexProperty, value);
+			}
+		}
+		public bool IsActive { get; set; }
+	}
 }

@@ -21,11 +21,13 @@ namespace DemoApp
         protected override async void OnStart()
         {
 #if WINDOWS_UWP
-            //await FullTrustProcessLauncher.LaunchFullTrustProcessForCurrentAppAsync("Setup");
+            await FullTrustProcessLauncher.LaunchFullTrustProcessForCurrentAppAsync("Setup");
 
 #elif __MACOS__
 			var process = new ProcessStartInfo("scripts/setup.sh");
 			Process.Start(process);
+
+			Markdown.Init();
 #endif
         }
 
