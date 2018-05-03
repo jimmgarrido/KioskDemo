@@ -43,6 +43,7 @@ namespace DemoApp.macOS
 		{
 			Forms.Init();
 			LoadApplication(new App());
+
 			base.DidFinishLaunching(notification);
 		}
 	}

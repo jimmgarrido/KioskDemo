@@ -7,6 +7,7 @@ using Windows.UI.ViewManagement;
 using Windows.ApplicationModel;
 #elif __MACOS__
 using AppKit;
+using Foundation;
 #endif
 
 namespace DemoApp
@@ -47,6 +48,14 @@ namespace DemoApp
 			var process = new ProcessStartInfo("scripts/cleanup.sh", arg);
 
 			Process.Start(process).WaitForExit();
+
+			var path = NSBundle.MainBundle.BundlePath;
+			var task = new NSTask
+			{
+				LaunchPath = "/usr/bin/open",
+				Arguments = new string[] { path }
+			};
+			task.Launch();
 			Environment.Exit(0);
 #endif
         }
