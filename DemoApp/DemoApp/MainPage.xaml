@@ -11,6 +11,11 @@
 
         <Image Source="logo.png" WidthRequest="313" HeightRequest="126"
                RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=0,Constant=20}"/>
+
+        <Image Source="phone.png" WidthRequest="517" HeightRequest="585"
+               RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=0,Constant=300}"
+               RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=1,Constant=0}"/>
+               
         <Grid RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=1}"
               RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=1}">
             <Grid.RowDefinitions>
@@ -41,7 +46,7 @@
                         <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="GoBtnClicked"/>
                     </Image.GestureRecognizers>
                 </Image>
-            </StackLayout>
+            </StackLayout>        
         </Grid>
     </RelativeLayout>
 </ContentPage>

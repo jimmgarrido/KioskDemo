@@ -100,6 +100,11 @@
     <BundleResource Include="Resources\back_button.png" />
     <BundleResource Include="Resources\phone_progress.png" />
     <BundleResource Include="Resources\phone_active.png" />
+    <BundleResource Include="Resources\azure.png" />
+    <BundleResource Include="Resources\app_center.png" />
+    <BundleResource Include="Resources\vs.png" />
+    <BundleResource Include="Resources\vs_mac.png" />
+    <BundleResource Include="Resources\xamarin.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Assets.xcassets\goBtn.png.imageset\" />
