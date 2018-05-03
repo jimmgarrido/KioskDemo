@@ -24,12 +24,12 @@ namespace DemoApp.macOS
 
 			var pos = new CGPoint
 			{
-				X = screen.Size.Width - rect.Width,
+				X = 0,
 				Y = screen.Size.Height - rect.Height
 			};
 
 			window = new NSWindow(new CGRect(pos, rect), style, NSBackingStore.Buffered, false);
-			window.Title = "Xamarin.Forms on Mac!"; // choose your own Title here
+			window.Title = "Build 2018";
 			window.TitleVisibility = NSWindowTitleVisibility.Hidden;
 			MainWindow.ToggleFullScreen(this);
 		}

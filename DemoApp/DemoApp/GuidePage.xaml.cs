@@ -32,6 +32,7 @@ namespace DemoApp
 		{
 			if (Markdown.IsLastPage)
 			{
+				var nav = Navigation.PushAsync(new FinalPage());
 #if WINDOWS_UWP
                 var pref = ViewModePreferences.CreateDefault(ApplicationViewMode.Default);
                 pref.CustomSize = new Windows.Foundation.Size(800, 600);
@@ -41,7 +42,7 @@ namespace DemoApp
 				NSApplication.SharedApplication.MainWindow.Level = NSWindowLevel.Normal;
 				NSApplication.SharedApplication.MainWindow.ToggleFullScreen(NSApplication.SharedApplication.MainWindow);
 #endif
-				await Navigation.PushAsync(new FinalPage());
+				await nav;
 			}
 			else
 			{

@@ -5,9 +5,9 @@ using Windows.UI.ViewManagement;
 using Windows.ApplicationModel;
 #elif __MACOS__
 using AppKit;
+using Foundation;
 #endif
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace DemoApp
 {
@@ -23,6 +23,15 @@ namespace DemoApp
 		{
 #if WINDOWS_UWP
 			await CoreApplication.RequestRestartAsync("Application Restart Programmatically ");
+#elif __MACOS__
+			var path = NSBundle.MainBundle.BundlePath;
+			var task = new NSTask
+			{
+				LaunchPath = "/usr/bin/open",
+				Arguments = new string[] { path }
+			};
+			task.Launch();
+			Environment.Exit(0);
 #endif
 		}
     }

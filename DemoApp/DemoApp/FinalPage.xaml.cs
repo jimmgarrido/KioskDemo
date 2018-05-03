@@ -42,21 +42,30 @@ namespace DemoApp
             }
 
 #elif __MACOS__
-			NSApplication.SharedApplication.MainWindow.ToggleFullScreen(NSApplication.SharedApplication.MainWindow);
-			NSApplication.SharedApplication.MainWindow.Level = NSWindowLevel.Floating;
-
-			var process = new ProcessStartInfo("scripts/cleanup.sh", arg);
-
-			Process.Start(process).WaitForExit();
-
-			var path = NSBundle.MainBundle.BundlePath;
-			var task = new NSTask
+			if (arg == String.Empty)
 			{
-				LaunchPath = "/usr/bin/open",
-				Arguments = new string[] { path }
-			};
-			task.Launch();
-			Environment.Exit(0);
+				var process = new ProcessStartInfo("scripts/cleanup.sh", arg);
+				Process.Start(process).WaitForExit();
+
+				var path = NSBundle.MainBundle.BundlePath;
+				var task = new NSTask
+				{
+					LaunchPath = "/usr/bin/open",
+					Arguments = new string[] { path }
+				};
+				task.Launch();
+				Environment.Exit(0);
+			}
+			else
+			{
+				var process = new ProcessStartInfo("scripts/cleanup.sh", arg);
+				Process.Start(process);
+
+				NSApplication.SharedApplication.MainWindow.ToggleFullScreen(NSApplication.SharedApplication.MainWindow);
+				NSApplication.SharedApplication.MainWindow.Level = NSWindowLevel.Floating;
+				await Navigation.PushAsync(new RestartPage());
+			}
+
 #endif
         }
 
