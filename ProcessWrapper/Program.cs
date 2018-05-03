@@ -11,9 +11,9 @@ namespace ProcessWrapper
         {
             var assembly = Assembly.GetExecutingAssembly().Location;
             var index = assembly.LastIndexOf("\\");
-            var packageRoot = assembly.Substring(0, index);
+            var directory = assembly.Substring(0, index);
         
-            Directory.SetCurrentDirectory(packageRoot);
+            Directory.SetCurrentDirectory(directory);
 
             string processPath;
             ProcessStartInfo process;
@@ -23,19 +23,19 @@ namespace ProcessWrapper
                 switch(args[2])
                 {
                     case "/setup":
-                        processPath = Path.Combine("scripts", "setup.bat");
+                        processPath = "setup.bat";
                         process = new ProcessStartInfo(processPath);
                         process.WindowStyle = ProcessWindowStyle.Minimized;
                         Process.Start(process);
                         break;
                     case "/clean":
-                        processPath = Path.Combine("scripts", "cleanup.bat");
+                        processPath = "cleanup.bat";
                         process = new ProcessStartInfo(processPath);
                         process.WindowStyle = ProcessWindowStyle.Minimized;
                         Process.Start(process);
                         break;
                     case "/archive":
-                        processPath = Path.Combine("scripts", "cleanup.bat");
+                        processPath = "cleanup.bat";
                         process = new ProcessStartInfo(processPath)
                         {
                             WindowStyle = ProcessWindowStyle.Hidden,

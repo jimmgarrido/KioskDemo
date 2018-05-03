@@ -26,9 +26,8 @@ namespace DemoApp
 #elif __MACOS__
 			var process = new ProcessStartInfo("scripts/setup.sh");
 			Process.Start(process);
-
-			Markdown.Init();
 #endif
+            Markdown.Init();
         }
 
         protected override void OnSleep()
