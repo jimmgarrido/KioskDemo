@@ -20,15 +20,15 @@ namespace DemoApp
 			InitializeComponent();
 			NavigationPage.SetHasNavigationBar(this, false);
 
-			markdown.Theme = new MyMarkdownTheme();
+			//markdown.Theme = new MyMarkdownTheme();
 			markdown.Markdown = Markdown.GetNextPage();
 
             progressBtns = new Button[] {
-                BtnOne, BtnTwo, BtnThree, BtnFour
+                BtnOne, BtnTwo, BtnThree
             };
 		}
 
-		private async void NextBtnClicked(object sender, EventArgs e)
+		async void NextBtnClicked(object sender, EventArgs e)
 		{
 			if (Markdown.IsLastPage)
 			{
@@ -53,7 +53,7 @@ namespace DemoApp
 			} 
         }
 
-        private void PrevBtnClicked(object sender, EventArgs e)
+        void PrevBtnClicked(object sender, EventArgs e)
         {
 			if(Markdown.WillBeFirstPage)
 				BackBtn.IsVisible = false;
@@ -66,11 +66,13 @@ namespace DemoApp
 
 		void ProgressBtnClicked(object sender, EventArgs e)
 		{
-			var index = (sender as ProgressButton).Index;
+			var index = sender.GetType() == typeof(ProgressButton) ?
+							  (sender as ProgressButton).Index : (Markdown.PageCount - 1);
 
 			if (index == Markdown.Index)
 				return;
-			else if (index == 0)
+			
+			if (index == 0)
 				BackBtn.IsVisible = false;
 			else
 				BackBtn.IsVisible = true;
@@ -79,19 +81,26 @@ namespace DemoApp
 			UpdateProgressButtons();
 		}
 
-        private void UpdateProgressButtons()
+        void UpdateProgressButtons()
         {
-			for(int i=0; i<Markdown.PageCount; i++)
+			for(int i=0; i<Markdown.PageCount-1; i++)
             {
 				if (i == Markdown.Index)
-				{
 					progressBtns[i].BackgroundColor = activeColor;
-				}
 				else
-				{
 					progressBtns[i].BackgroundColor = otherColor;
-				}
             }
+
+			if (Markdown.IsLastPage)
+			{
+				phoneIcon.Source = "phone_active.png";
+				NextLabel.Text = "DONE";
+			}
+			else
+			{
+				phoneIcon.Source = "phone_progress.png";
+				NextLabel.Text = "NEXT";
+			}
         }
     }
 

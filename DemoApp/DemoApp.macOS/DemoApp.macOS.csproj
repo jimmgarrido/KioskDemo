@@ -98,6 +98,8 @@
     <BundleResource Include="Resources\reset_button.png" />
     <BundleResource Include="Resources\phone.png" />
     <BundleResource Include="Resources\back_button.png" />
+    <BundleResource Include="Resources\phone_progress.png" />
+    <BundleResource Include="Resources\phone_active.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Assets.xcassets\goBtn.png.imageset\" />
