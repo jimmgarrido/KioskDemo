@@ -20,7 +20,7 @@ namespace DemoApp
 			InitializeComponent();
 			NavigationPage.SetHasNavigationBar(this, false);
 
-			//markdown.Theme = new MyMarkdownTheme();
+			markdown.Theme = new MyMarkdownTheme();
 			markdown.Markdown = Markdown.GetNextPage();
 
             progressBtns = new Button[] {
