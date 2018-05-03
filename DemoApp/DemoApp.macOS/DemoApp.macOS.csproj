@@ -89,7 +89,7 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\scripts\cleanup.sh" />
-    <BundleResource Include="Resources\Testing.zip" />
+    <BundleResource Include="Resources\MOVAI.zip" />
     <BundleResource Include="Resources/scripts/setup.sh" />
     <BundleResource Include="Resources\go_button.png" />
     <BundleResource Include="Resources\build_bg.png" />

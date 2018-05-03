@@ -1,6 +1,6 @@
 @echo off
 
-set project=Testing
+set project=MOVAI
 set desktop=%USERPROFILE%\Desktop
 set zip=..\project\7za.exe
 set reset=%cd%

@@ -187,7 +187,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="scripts\setup.bat" />
-    <Content Include="project\Testing.zip" />
+    <Content Include="project\MOVAI.zip" />
     <Content Include="project\7za.exe" />
   </ItemGroup>
   <ItemGroup>
