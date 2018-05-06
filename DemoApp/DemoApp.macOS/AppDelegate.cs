@@ -45,6 +45,23 @@ namespace DemoApp.macOS
 			Forms.Init();
 			LoadApplication(new App());
 
+			//https://stackoverflow.com/a/22736933/6457998
+			var mainMenu = new NSMenu();
+			var appMenuItem = new NSMenuItem();
+			mainMenu.AddItem(appMenuItem);
+
+			var appMenu = new NSMenu();
+
+			var quitMenuItem = new NSMenuItem("Quit", "q", delegate {
+				NSApplication.SharedApplication.Terminate(mainMenu);
+			});
+
+			appMenu.AddItem(quitMenuItem);
+
+			appMenuItem.Submenu = appMenu;
+
+			NSApplication.SharedApplication.MainMenu = mainMenu;
+
 			base.DidFinishLaunching(notification);
 		}
 	}

@@ -39,6 +39,9 @@
                 <Label Text="Explore what's new in Xamarin.Forms 3.0" Style="{StaticResource LargeSubHeaderLabel}"/>
             </StackLayout>
 
+            <Image Source="qrcode.png" HeightRequest="175" WidthRequest="175" Grid.Row="2" Grid.Column="1"
+                   HorizontalOptions="Start"/>
+
             <StackLayout Grid.Row="2" Grid.Column="3" Orientation="Horizontal" Spacing="20">
                 <Image Source="timer_button.png" HeightRequest="200" WidthRequest="200"/>
                 <Image Source="go_button.png" HeightRequest="200" WidthRequest="200">
