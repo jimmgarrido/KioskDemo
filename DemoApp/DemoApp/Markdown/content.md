@@ -1,4 +1,5 @@
 ## 5 Minute Start: Exploring Xamarin.Forms 3.0
+
 Let's get a quick taste of building beautiful mobile apps with Xamarin.Forms 3.0. In this quick walkthrough you will:
 
 * Personalize the app
@@ -8,21 +9,19 @@ Let's get a quick taste of building beautiful mobile apps with Xamarin.Forms 3.0
 
 > If you're on Windows you can use the new Live Reload (Preview) to see your XAML changes without leaving your debug session. Simply make changes to your XAML and save the file. 
 
-![Live Reload Bar](Images/LiveReloadBar.png)
-
 -/-
 ## Personalize the App
+
 The My Profile page `UserProfileView.xaml` is looking quite plain. Let's add your own personal touch.
 
-1. Locate and open the layout file within the .NET Standard Library project MOVAI > Views.
-2. Run the project with F5 to see what you're working with.
+1. Locate and open the `UserProfileView.xaml` within the .NET Standard Library project MOVAI > Views.
+2. Remove the overlay content by finding the `<!-- REMOVE ME -->` comment.
+3. Run the project to see what you're working with.
 
-On the emulator/simulator you should see something like this:
 
-![Profile01](Images/Profile01.png)
+### Step  1: Add A StyleSheet
 
-### Add A StyleSheet
-We have a CSS file ready for you, so go ahead and connect that by adding a StyleSheet reference to the XAML.
+We have a CSS file ready for you to make this immediately a little better. To connect the CSS file, add a StyleSheet reference to the XAML.
 
 ```
 <ContentPage.Resources>
@@ -32,36 +31,35 @@ We have a CSS file ready for you, so go ahead and connect that by adding a Style
 
 Save the XAML and take another look. It's a little better, right?
 
-![Profile After Stylesheet](Images/ProfileAfterStylesheet.png)
 
-### Add an Image
+### Step 2: Add an Image
+
 A nice header background image will make this look a lot better too. Add this snippet to layout an image at the top where you see `<!-- TODO Header Image -->`.
 
 ```
 <Image 
-	Source="bg_seattle"
-	AbsoluteLayout.LayoutBounds="0,0,1,340"
-	AbsoluteLayout.LayoutFlags="WidthProportional"
-	Aspect="AspectFill" />
+ Source="bg_seattle"
+ AbsoluteLayout.LayoutBounds="0,0,1,340"
+ AbsoluteLayout.LayoutFlags="WidthProportional"
+ Aspect="AspectFill" />
 ```
 
-Save it again. Nice! Want another image? We have a few options for you. iOS and Android require keeping images in different folders, and they both use unique strategies for delivering images for different screen densities.
+Save it again. Nice! Want another image? We have a few options for you in the `Solution Items > Photos`. iOS and Android require keeping images in different folders, and they both use unique strategies for delivering images for different screen densities.
 
 * **iOS:** MOVAI.iOS > Resources
   * @2x and @3x for example indicate higher densities
 * **Android:** MOVAI.Android > Resources drawable-[density suffix]
   * hdpi, xhdpi, etc are folder suffixes indicating higher densities
+  * USE the drawable-nodpi
 
-We're on a time crunch, so here are a few options if you wish to choose a different image:
-
-[grid of 4 images]
-
+Choose your photo and place it in the appropriate folders.
 Just take the name of the image ignoring the path, suffixes, and file extension. Update the image's `Source` property and save it.
 
-Good job! 
+Good job!
 
 -/-
-## Personalize and Style
+## Step 3: Content and Style
+
 The bio is looking a little thin, why not add some details about yourself. Locate the `<!-- TODO Update Bio -->` and add a few sentences about yourself.
 
 > Hint: make it a few lines so we can see how FlexLayout and CSS work here. :)
@@ -96,7 +94,8 @@ All the content in the `FlexLayout` is collapsed on itself, but we want the labe
 
 Add `FlexLayout.Basis="100%"` in the XAML to the labels and box view.
 
-### Image Grid
+## Step 4: Image Grid
+
 Notice the `Image` controls are already spacing out, but you didn't add a `class=""` tag to them. That's because the CSS is already styling all images that are children of the `FlexLayout` with this block of CSS:
 
 ```
@@ -115,6 +114,25 @@ You don't want to see colorful boxes, but rather your own content, so let's wire
 
 Now when the page loads we will display a grid of photos you've taken with the app. 
 
--/-
-## What's Next? Deploy to Device
-Let's wrap this up and get your app on your own device. Ready?
+-/- 
+## Final Step: Deploy to Device
+Let's wrap this up and get your app on your own device. 
+
+> **Debug vs Release**
+> 
+> In order to generate a release build you need to have code signing certificates and provisioning profiles. That's a little more than you have time for right now, so this means:
+> - You will be running a **Debug** build
+> - It will run slower
+> - You should test a **Release** as soon as you can to really see the speed of Xamarin
+
+### For iOS
+
+- Select `MOVIA.iOS` or `MOVAI.Android` as your startup project.
+    - For iPhone devices select `Debug|iPhone` as your target
+    - For Android devices select `Debug` as your target
+- Connect your phone with a cable to the computer
+- Hit debug
+
+The app will be built now for a physical device and deployed to your own phone.
+
+# Congratulations! You're done.
