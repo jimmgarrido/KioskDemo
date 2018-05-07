@@ -9,8 +9,8 @@ using AppKit;
 using Foundation;
 #endif
 using Xamarin.Forms;
-ConferenceKiosk
-namespace DemoApp
+
+namespace ConferenceKiosk
 {
 	public partial class RestartPage : ContentPage
 	{
