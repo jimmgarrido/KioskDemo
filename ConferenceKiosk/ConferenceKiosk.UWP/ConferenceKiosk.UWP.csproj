@@ -147,6 +147,7 @@
     <Content Include="logo.png" />
     <Content Include="phone_active.png" />
     <Content Include="phone_progress.png" />
+    <Content Include="qrcode.png" />
     <Content Include="scripts\ProcessWrapper.exe">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

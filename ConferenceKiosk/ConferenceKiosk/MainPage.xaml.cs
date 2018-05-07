@@ -22,7 +22,7 @@ namespace ConferenceKiosk
 		{
 #if WINDOWS_UWP
             var pref = ViewModePreferences.CreateDefault(ApplicationViewMode.CompactOverlay);
-            pref.CustomSize = new Windows.Foundation.Size(400, 600);
+            pref.CustomSize = new Windows.Foundation.Size(400, 900);
 
             await ApplicationView.GetForCurrentView().TryEnterViewModeAsync(ApplicationViewMode.CompactOverlay, pref);
 #elif __MACOS__

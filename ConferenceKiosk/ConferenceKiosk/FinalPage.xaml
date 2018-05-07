@@ -6,8 +6,8 @@
     <ContentPage.Resources>
         <ResourceDictionary>
             <Style x:Key="BoothIcon" TargetType="Image">
-                <Setter Property="HeightRequest" Value="75"/>
-                <Setter Property="WidthRequest" Value="75"/>
+                <Setter Property="HeightRequest" Value="70"/>
+                <Setter Property="WidthRequest" Value="70"/>
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
@@ -23,7 +23,7 @@
             <Grid RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=1}"
               RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=1}">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="200"/>
+                    <RowDefinition Height="150"/>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="20"/>

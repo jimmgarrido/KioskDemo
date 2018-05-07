@@ -24,11 +24,13 @@ namespace ConferenceKiosk
 			markdown.Markdown = Markdown.GetNextPage();
 
             progressBtns = new Button[] {
-                BtnOne, BtnTwo, BtnThree
+                BtnOne, BtnTwo, BtnThree, BtnFour, BtnFive, BtnSix
             };
-		}
 
-		async void NextBtnClicked(object sender, EventArgs e)
+            UpdateProgressButtons();
+        }
+
+        async void NextBtnClicked(object sender, EventArgs e)
 		{
 			if (Markdown.IsLastPage)
 			{
@@ -66,41 +68,41 @@ namespace ConferenceKiosk
 
 		void ProgressBtnClicked(object sender, EventArgs e)
 		{
-			var index = sender.GetType() == typeof(ProgressButton) ?
-							  (sender as ProgressButton).Index : (Markdown.PageCount - 1);
+            var index = sender.GetType() == typeof(ProgressButton) ?
+                              (sender as ProgressButton).Index : (Markdown.PageCount - 1);
 
-			if (index == Markdown.Index)
-				return;
-			
-			if (index == 0)
-				BackBtn.IsVisible = false;
-			else
-				BackBtn.IsVisible = true;
+            if (index == Markdown.Index)
+                return;
 
-			markdown.Markdown = Markdown.GetPage(index);
-			UpdateProgressButtons();
-		}
+            if (index == 0)
+                BackBtn.IsVisible = false;
+            else
+                BackBtn.IsVisible = true;
+
+            markdown.Markdown = Markdown.GetPage(index);
+            UpdateProgressButtons();
+        }
 
         void UpdateProgressButtons()
         {
-			for(int i=0; i<Markdown.PageCount-1; i++)
+            for (int i = 0; i < Markdown.PageCount - 1; i++)
             {
-				if (i == Markdown.Index)
-					progressBtns[i].BackgroundColor = activeColor;
-				else
-					progressBtns[i].BackgroundColor = otherColor;
+                if (i == Markdown.Index)
+                    progressBtns[i].BackgroundColor = activeColor;
+                else
+                    progressBtns[i].BackgroundColor = otherColor;
             }
 
-			if (Markdown.IsLastPage)
-			{
-				phoneIcon.Source = "phone_active.png";
-				NextLabel.Text = "DONE";
-			}
-			else
-			{
-				phoneIcon.Source = "phone_progress.png";
-				NextLabel.Text = "NEXT";
-			}
+            if (Markdown.IsLastPage)
+            {
+                phoneIcon.Source = "phone_active.png";
+                NextLabel.Text = "DONE";
+            }
+            else
+            {
+                phoneIcon.Source = "phone_progress.png";
+                NextLabel.Text = "NEXT";
+            }
         }
     }
 

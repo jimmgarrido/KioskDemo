@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:ConferenceKiosk"
              x:Class="ConferenceKiosk.MainPage">
             
     <RelativeLayout BackgroundColor="Black">
@@ -12,14 +11,14 @@
         <Image Source="logo.png" WidthRequest="313" HeightRequest="126"
                RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=0,Constant=20}"/>
 
-        <Image Source="phone.png" WidthRequest="517" HeightRequest="585"
-               RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=0,Constant=300}"
-               RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=1,Constant=-585}"/>
+        <Image Source="phone.png" WidthRequest="442" HeightRequest="500"
+               RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=0,Constant=150}"
+               RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=1,Constant=-500}"/>
 
         <Grid RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=1}"
               RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=1}">
             <Grid.RowDefinitions>
-                <RowDefinition Height="200"/>
+                <RowDefinition Height="150"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="20"/>
@@ -39,8 +38,10 @@
                 <Label Text="Explore what's new in Xamarin.Forms 3.0" Style="{StaticResource LargeSubHeaderLabel}"/>
             </StackLayout>
 
-            <Image Source="qrcode.png" HeightRequest="175" WidthRequest="175" Grid.Row="2" Grid.Column="1"
-                   HorizontalOptions="Start"/>
+            <StackLayout Grid.Row="1" Grid.Column="2">
+                <Image Source="qrcode.png" HeightRequest="175" WidthRequest="175"/>
+                <Label Text="Get the app!" Style="{StaticResource SubHeaderLabel}"/>
+            </StackLayout>
 
             <StackLayout Grid.Row="2" Grid.Column="3" Orientation="Horizontal" Spacing="20">
                 <Image Source="timer_button.png" HeightRequest="200" WidthRequest="200"/>

@@ -18,8 +18,8 @@ The My Profile page `UserProfileView.xaml` is looking quite plain. Let's add you
 2. Remove the overlay content by finding the `<!-- REMOVE ME -->` comment.
 3. Run the project to see what you're working with.
 
-
-### Step  1: Add A StyleSheet
+-/-
+## Step 1: Add A StyleSheet
 
 We have a CSS file ready for you to make this immediately a little better. To connect the CSS file, add a StyleSheet reference to the XAML.
 
@@ -31,8 +31,8 @@ We have a CSS file ready for you to make this immediately a little better. To co
 
 Save the XAML and take another look. It's a little better, right?
 
-
-### Step 2: Add an Image
+-/-
+## Step 2: Add an Image
 
 A nice header background image will make this look a lot better too. Add this snippet to layout an image at the top where you see `<!-- TODO Header Image -->`.
 
@@ -94,6 +94,7 @@ All the content in the `FlexLayout` is collapsed on itself, but we want the labe
 
 Add `FlexLayout.Basis="100%"` in the XAML to the labels and box view.
 
+-/-
 ## Step 4: Image Grid
 
 Notice the `Image` controls are already spacing out, but you didn't add a `class=""` tag to them. That's because the CSS is already styling all images that are children of the `FlexLayout` with this block of CSS:
