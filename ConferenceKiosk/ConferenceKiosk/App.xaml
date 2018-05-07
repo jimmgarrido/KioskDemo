@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ConferenceKiosk.App">
+	<Application.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Button">
+                <Setter Property="Margin" Value="0,10,0,0"/>
+                <Setter Property="HeightRequest">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="macOS" Value="40"/>
+                            <On Platform="UWP" Value="-1"/>
+                        </OnPlatform>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style TargetType="Label">
+                <Setter Property="TextColor" Value="White"/>
+            </Style>
+
+            <Style x:Key="LargeHeaderLabel" TargetType="Label">
+                <Setter Property="FontSize" Value="56"/>
+            </Style>
+
+            <Style x:Key="LargeSubHeaderLabel" TargetType="Label">
+                <Setter Property="FontSize" Value="32"/>
+            </Style>
+
+            <Style x:Key="ArchiveLabel" TargetType="Label">
+                <Setter Property="FontSize" Value="36"/>
+            </Style>
+        </ResourceDictionary>
+	</Application.Resources>
+</Application>
