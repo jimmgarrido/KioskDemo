@@ -20,4 +20,7 @@ fi
 echo "Deleting project files..."
 rm -r $PROJECT_PATH
 
+if [ "$1" = "reset" ]; then
+    rm $PROJECT_PATH.zip
+fi
 echo "Clean up complete!"

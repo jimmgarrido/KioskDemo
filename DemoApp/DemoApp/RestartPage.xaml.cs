@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 #if WINDOWS_UWP
 using Windows.ApplicationModel.Core;
 using Windows.UI.ViewManagement;
@@ -24,6 +25,9 @@ namespace DemoApp
 #if WINDOWS_UWP
 			await CoreApplication.RequestRestartAsync("Application Restart Programmatically ");
 #elif __MACOS__
+			var process = new ProcessStartInfo("scripts/cleanup.sh", "reset");
+			Process.Start(process).WaitForExit();
+
 			var path = NSBundle.MainBundle.BundlePath;
 			var task = new NSTask
 			{

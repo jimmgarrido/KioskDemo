@@ -109,6 +109,7 @@ namespace DemoApp
         public MyMarkdownTheme()
         {
             BackgroundColor = Color.Black;
+
         }
     }
 
