@@ -31,6 +31,7 @@
             <desktop:ParameterGroup GroupId="Setup" Parameters="/setup" />
             <desktop:ParameterGroup GroupId="Clean" Parameters="/clean" />
             <desktop:ParameterGroup GroupId="Archive" Parameters="/archive" />
+            <desktop:ParameterGroup GroupId="Reset" Parameters="/reset" />
           </desktop:FullTrustProcess>
         </desktop:Extension>
       </Extensions>

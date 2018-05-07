@@ -28,7 +28,6 @@ namespace ConferenceKiosk
             if (arg == String.Empty)
             {
                 await FullTrustProcessLauncher.LaunchFullTrustProcessForCurrentAppAsync("Clean");
-                //await Navigation.PopToRootAsync();
                 await CoreApplication.RequestRestartAsync("Application Restart Programmatically ");
             }
             else

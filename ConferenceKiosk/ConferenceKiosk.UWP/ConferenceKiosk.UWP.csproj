@@ -183,10 +183,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="scripts\setup.bat" />
-    <Content Include="project\MOVAI.zip" />
-    <Content Include="project\7za.exe" />
-  </ItemGroup>
-  <ItemGroup>
+    <Content Include="scripts\7za.exe" />
     <Content Include="scripts\cleanup.bat" />
   </ItemGroup>
   <ItemGroup>

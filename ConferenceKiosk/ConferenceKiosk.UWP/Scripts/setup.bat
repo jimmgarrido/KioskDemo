@@ -1,13 +1,12 @@
 @echo off
 
-set project=MOVAI
-set projectfile=..\project\%project%.zip
+set project=ConferenceVision
+set projectdir=%USERPROFILE%\Build2018
 set desktop=%USERPROFILE%\Desktop
-set zip=..\project\7za.exe
 
-echo Extracting project to desktop...
+echo Copying project to desktop...
 
-%zip% x -o%desktop% %projectfile%  
+xcopy %projectdir% %desktop% /s /e  
 
 echo Opening Visual Studio...
 

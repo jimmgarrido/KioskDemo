@@ -44,6 +44,15 @@ namespace ProcessWrapper
                         };
                         Process.Start(process);
                         break;
+                    case "/reset":
+                        processPath = "cleanup.bat";
+                        process = new ProcessStartInfo(processPath)
+                        {
+                            WindowStyle = ProcessWindowStyle.Hidden,
+                            Arguments = "reset"
+                        };
+                        Process.Start(process);
+                        break;
                 }
             }   
         }

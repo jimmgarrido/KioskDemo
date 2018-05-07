@@ -111,7 +111,7 @@ namespace ConferenceKiosk
         public MyMarkdownTheme()
         {
             BackgroundColor = Color.Black;
-
+            Paragraph.FontSize = 14;
         }
     }
 

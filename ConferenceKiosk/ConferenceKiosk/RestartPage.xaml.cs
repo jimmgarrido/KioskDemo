@@ -23,7 +23,8 @@ namespace ConferenceKiosk
 		private async void ResetClicked(object sender, EventArgs e)
 		{
 #if WINDOWS_UWP
-			await CoreApplication.RequestRestartAsync("Application Restart Programmatically ");
+            await FullTrustProcessLauncher.LaunchFullTrustProcessForCurrentAppAsync("Reset");
+            await CoreApplication.RequestRestartAsync("Application Restart Programmatically ");
 #elif __MACOS__
 			var process = new ProcessStartInfo("scripts/cleanup.sh", "reset");
 			Process.Start(process).WaitForExit();
@@ -37,6 +38,6 @@ namespace ConferenceKiosk
 			task.Launch();
 			Environment.Exit(0);
 #endif
-		}
+        }
     }
 }
