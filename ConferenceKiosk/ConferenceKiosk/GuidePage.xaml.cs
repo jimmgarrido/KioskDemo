@@ -111,7 +111,13 @@ namespace ConferenceKiosk
         public MyMarkdownTheme()
         {
             BackgroundColor = Color.Black;
-            Paragraph.FontSize = 14;
+            switch(Device.RuntimePlatform)
+            {
+                case Device.UWP:
+                    Paragraph.FontSize = 14;
+                    Code.FontSize = 14;
+                    break;
+            }
         }
     }
 
